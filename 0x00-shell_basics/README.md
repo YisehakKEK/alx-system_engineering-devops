@@ -1,2 +1,2 @@
-script that displays current directory contents in long format with user and group IDs displayed numerically and including hidden files
-5-listfilesdigitonly
+script that creates a directory named my_first_directory in the /tmp/ directory
+6-firstdirectory
