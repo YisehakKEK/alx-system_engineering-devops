@@ -1,2 +1,2 @@
-script that displays current directory contents, including hidden files, in a long format
-4-listmorefiles
+script that displays current directory contents in long format with user and group IDs displayed numerically and including hidden files
+5-listfilesdigitonly
