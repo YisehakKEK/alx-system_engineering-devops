@@ -1,2 +1,2 @@
-script that displays the contents list of the current directory
-Task 1. What's in there?
+script that changes the working directory to the user’s home directory
+2-bring_me_home
