@@ -1,0 +1,6 @@
+#!/bin/bash
+
+wtr=$(echo "$WATER" | tr 'ewatr' '01234')
+str=$(echo "$STIR" | tr 'ti.r' '0123')
+sum=$((5#$wtr + 4#$str))
+echo $sum | tr '0123456789' 'bestchol'
