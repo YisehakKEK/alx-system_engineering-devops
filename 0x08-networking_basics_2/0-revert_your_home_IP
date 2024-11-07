@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# This script reverts localhost to 127.0.0.1 and facebook.com to 157.240.11.35 in /etc/hosts
+
+# Back up /etc/hosts before making changes (optional but recommended)
+sudo cp /etc/hosts /etc/hosts.bak
+
+# Revert localhost to 127.0.0.1
+echo "127.0.0.1 localhost" | sudo tee /etc/hosts > /dev/null
+
+# Revert facebook.com to its original IP address (example: 157.240.11.35)
+echo "157.240.11.35 facebook.com" | sudo tee -a /etc/hosts > /dev/null
+
+# Ensure other standard entries are intact by appending them manually
+echo "::1 localhost ip6-localhost ip6-loopback" | sudo tee -a /etc/hosts > /dev/null
+echo "fe00::0 ip6-localnet" | sudo tee -a /etc/hosts > /dev/null
+echo "ff00::0 ip6-mcastprefix" | sudo tee -a /etc/hosts > /dev/null
+echo "ff02::1 ip6-allnodes" | sudo tee -a /etc/hosts > /dev/null
+echo "ff02::2 ip6-allrouters" | sudo tee -a /etc/hosts > /dev/null
+
+# Optionally, add a container hostname (replace with actual container IP)
+echo "172.17.0.23 e42ec73fec42" | sudo tee -a /etc/hosts > /dev/null
+
+# Print the reverted /etc/hosts
+echo "Reverted /etc/hosts:"
+cat /etc/hosts
+
+# Optionally, test ping localhost and facebook.com to verify
+ping -c 1 localhost
+ping -c 1 facebook.com

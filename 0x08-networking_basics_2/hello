@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# This script changes localhost to 127.0.0.2 and facebook.com to 8.8.8.8 in /etc/hosts
+
+# Back up /etc/hosts before making changes
+sudo cp /etc/hosts /etc/hosts.bak
+
+# Update localhost to 127.0.0.2
+sudo sh -c 'echo "127.0.0.2 localhost" > /etc/hosts'
+# Update facebook.com to 8.8.8.8
+sudo sh -c 'echo "8.8.8.8 facebook.com" >> /etc/hosts'
+
+# Ensure other standard entries are intact
+sudo sh -c 'echo "::1 localhost ip6-localhost ip6-loopback" >> /etc/hosts'
+sudo sh -c 'echo "fe00::0 ip6-localnet" >> /etc/hosts'
+sudo sh -c 'echo "ff00::0 ip6-mcastprefix" >> /etc/hosts'
+sudo sh -c 'echo "ff02::1 ip6-allnodes" >> /etc/hosts'
+sudo sh -c 'echo "ff02::2 ip6-allrouters" >> /etc/hosts'
+
+# Optionally, add a container hostname (replace with actual container IP)
+sudo sh -c 'echo "172.17.0.23 e42ec73fec42" >> /etc/hosts'
+
+# Print the updated /etc/hosts
+echo "Updated /etc/hosts:"
+cat /etc/hosts
+
+# Optionally, ping localhost and facebook.com to verify changes
+ping -c 1 localhost
+ping -c 1 facebook.com

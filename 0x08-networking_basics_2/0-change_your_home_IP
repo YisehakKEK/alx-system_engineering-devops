@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This script changes localhost IP to 127.0.0.2 and facebook.com to 8.8.8.8
+
+# Modify /etc/hosts to change localhost and facebook.com IP resolutions
+echo "127.0.0.2 localhost" | sudo tee -a /etc/hosts > /dev/null
+echo "8.8.8.8 facebook.com" | sudo tee -a /etc/hosts > /dev/null
+
+# Print the new /etc/hosts to verify the changes
+echo "Updated /etc/hosts:"
+cat /etc/hosts
+
+# Optionally, you can test with ping (you can remove these lines in production scripts)
+ping -c 1 localhost
+ping -c 1 facebook.com
