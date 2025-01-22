@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+0x0E. Web stack debugging #1 question #1 "Make it sweet and short" answer
+apt-get -y update
+apt-get install -y nginx
+sudo service nginx start

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+0x0E. Web stack debugging #0 question one "Nginx likes port 80" answer
+0x0E. Web stack debugging #1 question #1 "Make it sweet and short" answer
+cat /etc/nginx/sites-available/default > /etc/nginx/sites-enabled/default
+sudo service nginx restart
+rm /run/nginx.pid
