@@ -8,6 +8,7 @@ for a given subreddit using the Reddit API.
 
 import requests
 
+
 def number_of_subscribers(subreddit):
     """
     Queries the Reddit API and returns the number of subscribers
@@ -20,4 +21,5 @@ def number_of_subscribers(subreddit):
     if response.status_code == 200:
         data = response.json()
         return data.get("data", {}).get("subscribers", 0)
+
     return 0
