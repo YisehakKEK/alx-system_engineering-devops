@@ -1,16 +1,6 @@
-# This Puppet manifest ensures WordPress is running correctly on a LAMP stack
-exec { 'fix-wordpress-permissions':
-  command => 'chown -R www-data:www-data /var/www/html',
-  onlyif  => 'test -d /var/www/html',
-}
+# A Puppet script to fix a WordPress server error by correcting a typo in the wp-settings.php file
 
-service { 'apache2':
-  ensure  => running,
-  enable  => true,
+exec { 'fix-wordpress-server-error':
+  command => 'sed -i s/php$/php/g /var/www/html/wp-settings.php',
+  path    => '/usr/bin:/bin/',
 }
-
-service { 'mysql':
-  ensure  => running,
-  enable  => true,
-}
-
